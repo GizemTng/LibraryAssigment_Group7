@@ -1,11 +1,21 @@
 package com.cydeo.pages;
 
+import com.cydeo.utilities.ConfigurationReader;
 import com.cydeo.utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
+    public void login(){
+        String username= ConfigurationReader.getProperty("librarian_username");
+        String password=ConfigurationReader.getProperty("password");
+
+        InputEmailAddress.sendKeys(username);
+        InputPassword.sendKeys(password);
+        signInBtn.click();
+
+    }
 
 
     public LoginPage() {
